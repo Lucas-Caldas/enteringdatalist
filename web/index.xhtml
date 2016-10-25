@@ -22,33 +22,33 @@
         
         
         <h1>Projeto Lucas</h1>
+        <h5>(Ainda não consegui colocar cada dado em uma coluna!)</h5>
         <h:form class="form-horizontal" style="width: 400px; background-color: #EDEDE3; margin-left: 35%;">
             <p:panelGrid id="butt">
-                <h3>Seu Nome:</h3>
-                <h:inputText class="form-control" value="#{nombresBean.nombre}"/>
+                <code>Seu Nome Aqui:</code>
+                <h:inputText class="form-control" value="#{nomesBean.nome}"/>
                 <br/>
                 
-                <h3>Seu Nome1:</h3>
-                <h:inputText class="form-control" value="#{nombresBean.nombre1}"/>
+                <code>Sua Idade Aqui:</code>
+                <h:inputText class="form-control" value="#{nomesBean.idade}"/>
                 <br/>
-                <h:commandButton class="btn btn-default" value="Acumular" action="#{nombresBean.aumentar()}"/>
+                <h:commandButton class="btn btn-default" value="Acumular" action="#{nomesBean.aumentar()}"/>
             </p:panelGrid>
 	         
          </h:form>
        
         
         
+        <!-- Testando Primefaces abaixo -->        
         
-        
-        
-        <h3 style="margin-top:0">Lista</h3>
+<!--        <h3 style="margin-top:0">Lista</h3>
         <p:accordionPanel>
             <p:tab title="Mostrar e Esconder a Lista">
                 <h:panelGrid columns="2" cellpadding="10">                
-                    <h:outputText value="#{nombre}" />
+                    <h:outputText value="#{nome}" />
                     <ol>
-                            <ui:repeat var="nombre" value="#{nombresBean.nombres}">
-                                    <li>#{nombre}</li>
+                            <ui:repeat var="nome" value="#{nomesBean.nomes}">
+                                    <li>#{nome}</li>
                             </ui:repeat>	
                     </ol>
                 </h:panelGrid>
@@ -57,15 +57,49 @@
         <p:accordionPanel>
             <p:tab title="Mostrar e Esconder a Lista1">
                 <h:panelGrid columns="2" cellpadding="10">                
-                    <h:outputText value="#{nombre1}" />
+                    <h:outputText value="#{idade}" />
                     <ol>
-                            <ui:repeat var="nombre1" value="#{nombresBean.nombres1}">
-                                    <li>#{nombre1}</li>
+                            <ui:repeat var="idade" value="#{nomesBean.idades}">
+                                    <li>#{idade}</li>
                             </ui:repeat>	
                     </ol>
                 </h:panelGrid>
             </p:tab>        
+        </p:accordionPanel>-->
+
+        
+        
+        
+        <!-- Tabela abaixo de dados com colunas e linhas 
+        Falta incrementar as colunas com outros dados. Mas não estou conseguindo, 
+        pois quando declaro a "var=nome" na tabela (<p:dataTable)ele só busca a variavel nome 
+        e não consigo colocar a idade na outra coluna.-->
+        
+                
+        <p:accordionPanel>
+        <p:tab title="Mostrar Nome">
+        <h:panelGrid columns="2" cellpadding="10">
+        <p:dataTable var="nome" value="#{nomesBean.nomes}">
+            <p:column headerText="Id">
+                <h:outputText value="#{nome}" />
+            </p:column>
+        </p:dataTable>
+        </h:panelGrid>
+        </p:tab>
         </p:accordionPanel>
+        
+        <p:accordionPanel>
+        <p:tab title="Mostra Idade">
+        <h:panelGrid columns="2" cellpadding="10">
+        <p:dataTable var="idade" value="#{nomesBean.idades}">
+            <p:column headerText="Id">
+                <h:outputText value="#{idade}" />
+            </p:column>
+        </p:dataTable>
+        </h:panelGrid>
+        </p:tab>
+        </p:accordionPanel>
+        
     </h:body>
 </html>
 

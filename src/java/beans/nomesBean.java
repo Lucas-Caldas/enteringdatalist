@@ -15,15 +15,31 @@ import javax.faces.bean.ViewScoped;
  *
  * @author CLIENTE
  */
-@Named(value ="idadesBean")
+@Named(value ="nomesBean")
 @ManagedBean
 @ViewScoped
-public class idadesBean {
-	private String idade;
-	private List<String> idades  = new ArrayList<>();
+public class nomesBean {
+	private String nome;
+	private List<String> nomes  = new ArrayList<>();
 	public void aumentar() {
-		this.idades.add(idade);
+		this.nomes.add(nome);
+                this.idades.add(idade);
 	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public List<String> getNomes() {
+		return nomes;
+	}
+        private String idade;
+	private List<String> idades  = new ArrayList<>();
+	
 	
 	public String getIdade() {
 		return idade;
@@ -36,5 +52,6 @@ public class idadesBean {
 	public List<String> getIdades() {
 		return idades;
 	}
+        
 	
 }
